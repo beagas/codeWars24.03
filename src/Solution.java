@@ -40,7 +40,7 @@ public class Solution {
         int initialSeconds = minutes * 60 + seconds;
         int neededPowerValue = Integer.parseInt(neededPower.substring(0, neededPower.length() - 1));
         int powerValue = Integer.parseInt(power.substring(0, power.length() - 1));
-        long neededTimeSeconds = (Math.round((double)neededPowerValue * initialSeconds / powerValue));
+        long neededTimeSeconds = (long) Math.ceil((double)neededPowerValue * initialSeconds / powerValue);
         int newMinutes = (int)((neededTimeSeconds) / 60);
         int newSeconds = (int)((neededTimeSeconds) % 60);
         String answer = newMinutes + " minutes " + newSeconds + " seconds";
