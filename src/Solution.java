@@ -47,4 +47,14 @@ public class Solution {
         return answer;
 
     }
+
+        public static String getTime1(String neededPower, int minutes, int seconds, String power) {
+            int p1 = Integer.valueOf(neededPower.replace("W",""));
+            int p2 = Integer.valueOf(power.replace("W",""));
+            int s = (int)Math.ceil((minutes * 60. + seconds) * p1 / p2);
+            return String.format("%d minutes %d seconds", s/60, s%60); //%d į šitą poziciją turės grįžti sveikas skaičius
+                                                                       //s/60 grąžina sveikąsias dalis
+                                                                        // s%60 grąžina dalybos iš 60 liekaną
+        }
+
 }
