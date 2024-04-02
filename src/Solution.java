@@ -57,4 +57,44 @@ public class Solution {
                                                                         // s%60 grąžina dalybos iš 60 liekaną
         }
 
+    public static String hexColor(String codes) {
+        String ans = "";
+        if (codes.isEmpty()) {
+            ans = "black";
+            return ans;
+        }
+        String[] seperateCodes = codes.trim().split("\\s+");
+        int red = Integer.parseInt(String.valueOf(seperateCodes[0]));//^anchors to the start of the string
+        int green = Integer.parseInt(String.valueOf(seperateCodes[1]));//
+        int blue = Integer.parseInt(String.valueOf(seperateCodes[2]));
+        int max = Math.max(red,Math.max(green,blue));
+        if (red > green && red > blue) {
+            ans = "red";
+        }
+        if (green > red && green > blue) {
+            ans = "green";
+        }
+        if (blue > red && blue > green) {
+            ans = "blue";
+        }
+        if (red == blue && blue != 0 && red != 0) {
+            ans = "magenta";
+        }
+        if (red == green && green != 0 && red != 0) {
+            ans = "yellow";
+        }
+        if (green == blue && blue != 0 && green != 0) {
+            ans = "cyan";
+        }
+        if (red == blue && blue == green && blue != 0 && green != 0 && red != 0) {
+            ans = "white";
+        }
+        if (red == 0 && green == 0 && blue == 0) {
+            ans = "black";
+        }
+        return ans;
+    }
+
+
+
 }
