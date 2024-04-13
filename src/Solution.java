@@ -68,25 +68,25 @@ public class Solution {
         int green = Integer.parseInt(String.valueOf(seperateCodes[1]));//
         int blue = Integer.parseInt(String.valueOf(seperateCodes[2]));
         int max = Math.max(red,Math.max(green,blue));
-        if (red > green && red > blue) {
+        if (red == max && green != max && blue != max) {
             ans = "red";
         }
-        if (green > red && green > blue) {
+        if (red != max && green == max && blue != max) {
             ans = "green";
         }
-        if (blue > red && blue > green) {
+        if (red != max && green != max && blue == max) {
             ans = "blue";
         }
-        if (red == blue && blue != 0 && red != 0) {
+        if (red == max && green != max && blue == max) {
             ans = "magenta";
         }
-        if (red == green && green != 0 && red != 0) {
+        if (red == max && green == max && blue != max) {
             ans = "yellow";
         }
-        if (green == blue && blue != 0 && green != 0) {
+        if (red != max && green == max && blue == max) {
             ans = "cyan";
         }
-        if (red == blue && blue == green && blue != 0 && green != 0 && red != 0) {
+        if (red == max && green == max && blue == max && red != 0 && green != 0 && blue != 0) {
             ans = "white";
         }
         if (red == 0 && green == 0 && blue == 0) {
@@ -94,6 +94,19 @@ public class Solution {
         }
         return ans;
     }
+
+    static boolean stepThroughWith(String s) {
+       if (s == null|| s.length()<2){
+        return false;}
+        for (int i = 1; i < s.length(); i++) {
+            if(s.charAt(i) == s.charAt(i-1)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 
 
