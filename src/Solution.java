@@ -106,6 +106,13 @@ public class Solution {
         return false;
     }
 
+    static boolean stepThroughWithh(String s) {
+        return s.matches(".*([a-zA-Z])\\1.*");//. - bet koks ženklas
+                                                    // * - nulį arba daugiau kartų
+                                                    // [a-zA-Z] - bet kokia raidė
+                                                    // \\1 - patikrina kad antras ženklas  sutampa su anksčiau buvusiu simboliu
+    }
+
 
 
 

@@ -10,6 +10,7 @@ public class Main {
         System.out.println(Solution.getTime1("450W", 3, 25, "950W"));
         System.out.println(Solution.hexColor(""));
         System.out.println(Solution.stepThroughWith("comment"));
+        System.out.println(Solution.stepThroughWithh("comment"));
 
     }
 }
