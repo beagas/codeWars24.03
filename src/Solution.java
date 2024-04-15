@@ -113,8 +113,64 @@ public class Solution {
                                                     // \\1 - patikrina kad antras ženklas  sutampa su anksčiau buvusiu simboliu
     }
 
+//    public static String decode(int[] code, int key) {
+//        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+//        char[] charArray = alphabet.toCharArray();
+//        String keey = Integer.toString(key);
+//        int[] dekey = new int[keey.length()];
+//        char[] word = new char[0];
+//        for (int i = 1; i <= code.length; i++) {
+//            word = new char[]{charArray[code[i]-dekey[((i - 1) % dekey.length)]]};
+//        }
+//        String singleWord = String.valueOf(word);
+//        return singleWord;
+//    }
 
 
+
+public static String decode(int[] code, int key) {
+    if (code == null || code.length == 0) {
+        return ""; // Handle empty code
+    }
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    char[] letter = alphabet.toCharArray();
+   int[] dekey = key.split("");
+    StringBuilder decodedMessage = new StringBuilder();
+
+    for (int i = 0; i < code.length; i++) {
+        int newIndex = (code[i] - dekey[i % dekey.length]);
+        decodedMessage.append(letter[newIndex]);
+    }
+    return decodedMessage.toString();
+}
+
+
+
+//public static String decode(int[] code, String key) {
+//    if (code == null || code.length == 0 || key == null || key.length() == 0) {
+//        return ""; // Handle empty code, empty key, or both
+//    }
+//
+//    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+//
+//    // Ensure key length is less than or equal to code length to avoid out-of-bounds access
+//    int keyLength = Math.min(code.length, key.length());
+//    int[] shiftValues = new int[keyLength];
+//
+//    // Extract shift values from the key string
+//    for (int i = 0; i < keyLength; i++) {
+//        shiftValues[i] = Character.getNumericValue(key.charAt(i)) % alphabet.length(); // Ensure shift stays within alphabet range
+//    }
+//
+//    StringBuilder decodedMessage = new StringBuilder();
+//    for (int i = 0; i < code.length; i++) {
+//        int shift = shiftValues[i % keyLength]; // Use key cyclically for longer messages
+//        int newIndex = (code[i] - shift + alphabet.length()) % alphabet.length();
+//        decodedMessage.append(alphabet.charAt(newIndex));
+//    }
+//
+//    return decodedMessage.toString();
+//}
 
 
 }

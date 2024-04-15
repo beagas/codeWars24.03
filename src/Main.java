@@ -11,7 +11,7 @@ public class Main {
         System.out.println(Solution.hexColor(""));
         System.out.println(Solution.stepThroughWith("comment"));
         System.out.println(Solution.stepThroughWithh("comment"));
-
+        System.out.println(Solution.decode(new int[]{20,12,18,30,21},1939));
     }
 }
 
